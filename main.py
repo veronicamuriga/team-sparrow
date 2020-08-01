@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request 
   
-# # creating a Flask app 
-# app = Flask(__name__) 
+# creating a Flask app 
+app = Flask(__name__) 
 
 import tweepy
 import credentials
@@ -12,9 +12,6 @@ import random
 auth = tweepy.OAuthHandler(credentials.consumer_key, credentials.consumer_secret)
 auth.set_access_token(credentials.access_token, credentials.access_token_secret)
 api = tweepy.API(auth, wait_on_rate_limit = True)
-
-
-  
 
 #usernames are not case sensitive!
 user = 'Jaimeotravez'
@@ -56,7 +53,7 @@ class Game:
         #check if tweet is a retweet
         while rt:
             status_ix = random.randint(1, min({200, self.friend.statuses_count}))
-            tweet = self.friend_tweets[status_ix]
+            tweet = self.friend_tweets.pop(status_ix)
             rt = hasattr(tweet, 'retweeted_status') or tweet.in_reply_to_status_id != None
 
         return [self.friend.id, tweet.text]
@@ -73,9 +70,9 @@ def home():
 # the number to be squared is sent in the URL when we use GET 
 # on the terminal type: curl http://127.0.0.1:5000 / home / 10 
 # this returns 100 (square of 10) 
-@app.route('/home/<str:num>', methods = ['GET']) 
-def disp(num): 
-    gamer = Game(user)
+@app.route('/home/<username>', methods = ['GET']) 
+def disp(username): 
+    gamer = Game(username)
     ret = gamer.random_tweet_wrapper()
   
     return jsonify({'user_id': ret[0], 'tweet' : ret[1]}) 
@@ -83,8 +80,9 @@ def disp(num):
 
 # # driver function 
 if __name__ == '__main__': 
-  
     app.run(debug = True) 
+
+
 # gamer = Game(user)
 # print(gamer.random_tweet_wrapper())
 
