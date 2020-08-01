@@ -38,7 +38,7 @@ class Game:
         # print(len(tweets))
         # print(friend.statuses_count, status_ix)
 
-        return tweets[status_ix].text
+        return [friend_id, tweets[status_ix].text]
 
 gamer = Game(user)
 # print(gamer.random_tweet())
