@@ -1,5 +1,5 @@
 # Defines the FollowForFollow game
-def mutuals(user1,user2,maxCount):
+def mutuals(api,user1,user2,maxCount):
     # Makes two lists of all the friends from both users
     friends1 = api.friends(user1)
     friends2 = api.friends(user2)
