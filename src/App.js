@@ -1,11 +1,15 @@
 import React from 'react';
+import Application from './components/Application';
+import UserContext from './contexts/UserContext';
 // import './App.css';
 
 function App() {
   return (
-    <div className="App">
-		{/* Application goes here */}
-    </div>
+    <>
+		<UserContext>
+			<Application/>
+		</UserContext>
+    </>
   );
 }
 
