@@ -12,4 +12,4 @@ user1 = 'seishun_99'
 user2 = 'rpruiz'
 maxCount = 5000 # Twitter doesn't seem to have a limit, but after 5000 you need to have more followers to keep following
 
-games.mutuals(user1,user2,maxCount) #FollowForFollow
+games.mutuals(api,user1,user2,maxCount) #FollowForFollow
