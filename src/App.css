@@ -12,7 +12,8 @@ header {
 .LandingPage,
 .Dashboard,
 .PartyPage,
-.GameDisplay{
+.GameDisplay,
+.Leaderboard{
   display: grid;
   width: 100%;
   min-height: -webkit-fill-available;

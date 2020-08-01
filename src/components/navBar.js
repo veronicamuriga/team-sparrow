@@ -4,7 +4,7 @@ import '../styling/navBar.css';
 class NavBar extends React.Component{
     render(){
         return(
-            <div></div>
+            <div><h1>Dodie</h1></div>
         );
     }
 

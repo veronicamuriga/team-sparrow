@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from "@reach/router";
+// import {Link} from "@reach/router";
 import NavBar from '../components/navBar';
 import GameTile from '../components/GameTile';
 import SideBar from '../components/sidebar';
