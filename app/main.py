@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request 
   
-# creating a Flask app 
+creating a Flask app 
 app = Flask(__name__) 
 
 import tweepy
@@ -19,7 +19,7 @@ user = 'veronicamuriga'
 class Game:
     def __init__(self, user_name):
         self.user_name = user_name
-        # self.user = api.get_user(self.user_name)
+        self.user = api.get_user(self.user_name)
         self.friend = None
         self.verified_friends = list()
         self.friend_obj = None
@@ -89,9 +89,10 @@ def disp(username):
 
     for _ in range(4):
         obj = gamer.random_tweet_wrapper()
-        rounds.append({'tweet' : obj[2], 'tweet_time' : obj[1] 'correct_user_name' : obj[0], 'choices' : friends_set})
+        rounds.append({'tweet' : obj[2], 'tweet_time' : obj[1], 'correct_user_name' : obj[0], 'choices' : friends_set})
         # print(rounds)
     # ret = gamer.random_tweet_wrapper()
+    # return {'game_type': 'who_tweeted_this', 'rounds' : rounds}
     
     return jsonify({'game_type': 'who_tweeted_this', 'rounds' : rounds})
 
@@ -101,22 +102,24 @@ def disp(username):
 def disp(username): 
     gamer = Game(username)
     rounds = list()
+    winner = None
     gamer.find_verified_friends(gamer.user_name)
 
     for _ in range(2):
 
-        rand_1 = random.randint(1, len(gamer.verified_friends))
-        rand_2 = random.randint(1, len(gamer.verified_friends))
-        while rand1 == rand2:
-            rand_2 = random.randint(1, len(gamer.verified_friends))
+        rand_1 = random.randint(0, len(gamer.verified_friends)-1)
+        rand_2 = random.randint(0, len(gamer.verified_friends)-1)
+        while rand_1 == rand_2:
+            rand_2 = random.randint(0, len(gamer.verified_friends)-1)
 
         if gamer.verified_friends[rand_1].followers_count > gamer.verified_friends[rand_1].followers_count:
             winner = gamer.verified_friends[rand_1]
         else:
-            gamer.verified_friends[rand_2]
-        rounds.append({'choices' : gamer.verified_friends[rand_1].name, gamer.verified_friends[rand_2].name, 'winner' : winner.name, 'winner_followers' : winner.follower_count})
-        
-    return jsonify('game_type': 'who_has_more_followers', 'rounds' : rounds )
+            winner = gamer.verified_friends[rand_2]
+
+        rounds.append({'choices' : {gamer.verified_friends[rand_1].name, gamer.verified_friends[rand_2].name}, 'winner' : winner.name, 'winner_followers' : winner.followers_count})
+    # return {'game_type': 'who_has_more_followers', 'rounds' : rounds}
+    return jsonify({'game_type': 'who_has_more_followers', 'rounds' : rounds})
 
 # driver function 
 if __name__ == '__main__': 
@@ -127,8 +130,7 @@ if __name__ == '__main__':
 # gamer = Game(user)
 # print(gamer.random_tweet_wrapper())
 
-# print(disp(user)
-# )
+# print(disp(user))
 
 
 
