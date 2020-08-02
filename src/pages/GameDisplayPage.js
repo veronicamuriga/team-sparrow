@@ -13,6 +13,8 @@ class GameDisplayPage extends React.Component{
 		currentGame: ""
 	}
 
+	
+
     render(){
         return(
             <div className="GameDisplay">
