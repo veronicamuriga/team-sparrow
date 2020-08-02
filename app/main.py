@@ -36,11 +36,13 @@ class Game:
 
 
     def get_random_friend(self):
+        #get random friend
         self.find_verified_friends(self.user_name)
         end = min({200, len(self.verified_friends)-1})
         rand = random.randint(1, end)
         print(len(self.verified_friends), rand)
 
+        #save details of thaat friend
         self.friend = api.get_user(self.verified_friends[rand])
 
         # 200 appears to be the upper bound of tweets we can access at a time
@@ -74,9 +76,9 @@ def home():
 def disp(username): 
     gamer = Game(username)
     ret = gamer.random_tweet_wrapper()
-  
-    return jsonify({'user_id': ret[0], 'tweet' : ret[1]}) 
-  
+    
+    return jsonify({'game_type': 'who_tweeted_what', 'correct_user_id': ret[0], 'tweet' : ret[1], 'choices' : {ret[0], gamer.verified_friends[:min({len(gamer.verified_friends), 3})]}}) 
+    
 
 # # driver function 
 if __name__ == '__main__': 
