@@ -81,7 +81,7 @@ class Game:
 @app.route('/home/who_tweeted_this/<username>', methods = ['GET', 'POST']) 
 def disp_1(username): 
     rounds = list()
-    friends_set = list()
+    friends = list()
     gamer = Game(username)
     gamer.find_verified_friends(gamer.user_name)
     for x in gamer.verified_friends:
