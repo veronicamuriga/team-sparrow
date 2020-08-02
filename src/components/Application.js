@@ -19,6 +19,7 @@ export default function Application() {
 			<Switch>
 				<Route exact path="/dashboard"><Dashboard/></Route>
 				<Route exact path="/play"><GameDisplayPage/></Route>
+				<Route exact path="/whoSaid"><WhoSaidDisplayPage/></Route>
 				<Route exact path="/leaderboard"><LeaderboardPage/></Route>
 				<Route path="/"><Redirect to="/dashboard"/></Route>
 			</Switch>
