@@ -40,14 +40,30 @@
     transition: var(--transition-speed);
 }
 
+.daily-accent{
+    background-color: transparent;
+    color: var(--bg-secondary);
+    font-weight: 700;;
+    font-size: 1.25rem;
+}
+
 .daily-accent:hover{
     color: var(--accent-secondary);
     transition: var(--transition-speed);
+    background-color: transparent;
+}
+
+.info-accent{
+    background-color: transparent;
+    color: var(--bg-secondary);
+    font-weight: 700;;
+    font-size: 1.25rem;
 }
 
 .info-accent:hover{
     color: var(--accent-primary);
     transition: var(--transition-speed);
+    background-color: transparent;
 }
 
 #who-said-info{
