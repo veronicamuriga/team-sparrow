@@ -68,11 +68,11 @@ class Game:
 
 
 
-@app.route('/', methods = ['GET']) 
-def home(): 
-    if(request.method == 'GET'): 
+# @app.route('/', methods = ['GET']) 
+# def home(): 
+#     if(request.method == 'GET'): 
   
-        return "I need a post request!"
+#         return "I need a post request!"
   
 # A simple function to calculate the square of a number 
 # the number to be squared is sent in the URL when we use GET 
