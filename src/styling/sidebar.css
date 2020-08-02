@@ -1,0 +1,58 @@
+.sidebar{
+  height: 100vh;
+  width: 75px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: start;
+  background-color: var(--bg-secondary);
+  transition: var(--transition-speed);
+}
+
+.sidebar:hover{
+  width: 300px;
+  transition: var(--transition-speed);
+  justify-content: start;
+}
+
+.menu-text{
+  margin: 0;
+  font-size: 0px;
+  visibility: hidden;
+  transition: visibility 0s, opacity 0.3s linear;
+  transition: 300ms;
+}
+
+.sidebar:hover .menu-text{
+  position: absolute;
+  left: 5rem;
+  padding-top: 1.55rem;
+  font-size: 2rem;
+  display: inline;
+  color: var(--bg-primary);
+  font-weight: 700;
+  visibility: visible;
+  transition: visibility 0s, opacity 0.3s linear;
+  transition: 300ms;
+  text-align: center;
+
+}
+
+.menuSelect img{
+  padding: 1rem 0.75rem;
+  width: 50px;
+  height: 50px;
+}
+
+.menuSelect{
+  width: 100%;
+  transition: var(--transition-speed);
+}
+
+.menuSelect:hover{
+  background-color: var(--accent-secondary);
+  transition: var(--transition-speed);
+}

@@ -4,7 +4,8 @@ import '../App.css';
 import LandingPage from '../pages/landingPage';
 import Dashboard from '../pages/dashboard';
 import PartyPage from '../pages/partyPage';
-import GameDisplayPage from '../pages/gameDisplayPage';
+import FollowersGameDisplayPage from '../pages/FollowersGameDisplayPage';
+import LeaderboardPage from '../pages/LeaderboardPage';
 
 
 export default class Application extends React.Component{
@@ -19,7 +20,8 @@ export default class Application extends React.Component{
       <Router>
         <LandingPage path="/" />
         <Dashboard path="/dashboard" />
-        <GameDisplayPage path="/gamepage" />
+		    <LeaderboardPage path="/leaderboard"/>
+        <FollowersGameDisplayPage path="/gameplay/followersgame" />
         <PartyPage path="/partyplay" />
       </Router>
     </div>
