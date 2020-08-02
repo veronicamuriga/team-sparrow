@@ -24,7 +24,7 @@ export default class Timer extends React.Component {
 
 		return (
 			<div>
-				<h1>Time remaining: {secondsRemaining}</h1>
+				<h1>Time remaining: {seicondsRemaining}</h1>
 			</div>
 		)
 	}

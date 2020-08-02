@@ -7,6 +7,12 @@ import FollowersGame from '../components/FollowersGame';
 
 
 class GameDisplayPage extends React.Component{
+
+	state = {
+		data: null,
+		currentGame: ""
+	}
+
     render(){
         return(
             <div className="GameDisplay">
