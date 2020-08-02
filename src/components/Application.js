@@ -6,6 +6,7 @@ import Dashboard from '../pages/dashboard';
 import PartyPage from '../pages/partyPage';
 import FollowersGameDisplayPage from '../pages/FollowersGameDisplayPage';
 import LeaderboardPage from '../pages/LeaderboardPage';
+import WhoSaidDisplayPage from '../pages/WhoSaidDisplayPage';
 
 
 export default class Application extends React.Component{
@@ -22,6 +23,7 @@ export default class Application extends React.Component{
         <Dashboard path="/dashboard" />
 		    <LeaderboardPage path="/leaderboard"/>
         <FollowersGameDisplayPage path="/gameplay/followersgame" />
+        <WhoSaidDisplayPage path="gameplay/whosaid"/>
         <PartyPage path="/partyplay" />
       </Router>
     </div>
