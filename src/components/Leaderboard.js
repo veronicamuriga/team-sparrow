@@ -38,7 +38,7 @@ class LeaderBoard extends React.Component{
                     <img src={third}/>
                     <h2>3rd</h2>
                     <p className="leaderboard-user">@PuentesCasey</p>
-                    <p>43300 pts</p>
+                    <p>4300 pts</p>
 
                     </div>
 

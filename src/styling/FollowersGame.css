@@ -49,6 +49,11 @@
     color: white;
 }
 
+.followers-name:hover{
+    background-color: var(--accent-primary);
+    transition: var(--transition-speed);
+}
+
 .followers-handle{
     color: var(--bg-primary);
     font-weight: 700;
