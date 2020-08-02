@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request 
   
-creating a Flask app 
+# creating a Flask app 
 app = Flask(__name__) 
 
 import tweepy
@@ -26,14 +26,14 @@ class Game:
 
     def find_verified_friends(self, user_name):
         friends = api.friends(self.user_name, count = self.user.friends_count)
-        # print(friends)
+        # #print(friends)
         for friend in friends:
             # if friend.verified == True and friend.followers_count > self.follower_threshold and friend.protected == False:
             if friend.verified == True and friend.protected == False:
                 self.verified_friends.append(friend)
             if len(self.verified_friends) > 8:
                 break
-        # print(self.verified_friends)
+        # #print(self.verified_friends)
 
 
     def get_random_friend(self):
@@ -43,16 +43,16 @@ class Game:
         # end = min({200, len(self.verified_friends)-1})
         end = min({len(self.verified_friends)-1 ,4})
         rand = random.randint(1, end)
-        print(len(self.verified_friends), rand)
+        #print(len(self.verified_friends), rand)
 
         #save details of thaat friend
         # self.friend = api.get_user(self.verified_friends[rand])
         self.friend = self.verified_friends[rand]
-        print(self.friend.name)
+        #print(self.friend.name)
 
         # 200 appears to be the upper bound of tweets we can access at a time
         self.friend_tweets = api.user_timeline(self.friend.id, count = min({200, self.friend.statuses_count}))
-        # print(hasattr(tweets[0], 'retweeted_status'))
+        # #print(hasattr(tweets[0], 'retweeted_status'))
 
 
     def random_tweet_wrapper(self, rt = True):
@@ -60,7 +60,7 @@ class Game:
         #check if tweet is a retweet
         while rt:
             status_ix = random.randint(1, len(self.friend_tweets))
-            # print("statuses:", len(self.friend_tweets), "actual", self.friend.statuses_count)
+            # #print("statuses:", len(self.friend_tweets), "actual", self.friend.statuses_count)
             tweet = self.friend_tweets.pop(status_ix)
             rt = hasattr(tweet, 'retweeted_status') or tweet.in_reply_to_status_id != None
 
@@ -90,7 +90,7 @@ def disp(username):
     for _ in range(4):
         obj = gamer.random_tweet_wrapper()
         rounds.append({'tweet' : obj[2], 'tweet_time' : obj[1], 'correct_user_name' : obj[0], 'choices' : friends_set})
-        # print(rounds)
+        # #print(rounds)
     # ret = gamer.random_tweet_wrapper()
     # return {'game_type': 'who_tweeted_this', 'rounds' : rounds}
     
@@ -128,9 +128,9 @@ if __name__ == '__main__':
 
 
 # gamer = Game(user)
-# print(gamer.random_tweet_wrapper())
+# #print(gamer.random_tweet_wrapper())
 
-# print(disp(user))
+# #print(disp(user))
 
 
 
