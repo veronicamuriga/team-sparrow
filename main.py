@@ -96,7 +96,7 @@ def disp_1(username):
         # rand = random.randint(0, len(gamer.verified_friends)-1)
 
         obj = gamer.random_tweet_wrapper()
-        randomize = {obj[0], gamer.choice_b}
+        randomize = {obj[0], gamer.choice_b.name}
         rounds.append({'tweet' : obj[2], 'tweet_time' : obj[1], 'correct_user_name' : obj[0], 'choices' : [randomize.pop(), randomoize.pop()]})
         # #print(rounds)
     # ret = gamer.random_tweet_wrapper()
