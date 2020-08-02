@@ -5,6 +5,7 @@ import LandingPage from '../pages/landingPage';
 import Dashboard from '../pages/dashboard';
 import PartyPage from '../pages/partyPage';
 import GameDisplayPage from '../pages/gameDisplayPage';
+import LeaderboardPage from '../pages/LeaderboardPage';
 
 
 export default class Application extends React.Component{
@@ -19,6 +20,7 @@ export default class Application extends React.Component{
       <Router>
         <LandingPage path="/" />
         <Dashboard path="/dashboard" />
+		<LeaderboardPage path="/leaderboard"/>
         <GameDisplayPage path="/gamepage" />
         <PartyPage path="/partyplay" />
       </Router>
