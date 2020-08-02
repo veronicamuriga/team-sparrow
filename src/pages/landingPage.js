@@ -1,8 +1,8 @@
 import React from 'react';
 // import {Link} from "@reach/router";
-import NavBar from '../components/navBar';
+// import NavBar from '../components/navBar';
 import LandingpageTile from '../components/LandingpageTile';
-import SideBar from '../components/sidebar';
+// import SideBar from '../components/sidebar';
 
 
 class LandingPage extends React.Component{

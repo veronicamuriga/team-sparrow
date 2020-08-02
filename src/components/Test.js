@@ -1,27 +1,18 @@
 import React, {useContext} from 'react'
-import { UserContext } from '../contexts/UserContext'
-import {signOut} from './firebase'
+import { getGameData } from '../components/utilities'
 
 
 export default function Test() {
 
-	const {signIn} = useContext(UserContext);
-
-	const signInTest = (event) => {
+	const getData = async (event) => {
 		event.preventDefault();
-		signIn();
-	}
-
-	const signOutTest = (event) => {
-		event.preventDefault();
-		signOut();
+		console.log(await getGameData("whoHasMoreFollowers", "beyonce"));
 	}
 
 
 	return (
 		<div>
-			<button onClick={event => signInTest(event)}>Sign In</button><br/>
-			<button onClick={event => signOutTest(event)}>Sign Out</button>
+			<button onClick={event => getData(event)}>Get data!</button><br/>
 		</div>
 	)
 }
