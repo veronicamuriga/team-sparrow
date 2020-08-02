@@ -17,16 +17,16 @@ api = tweepy.API(auth, wait_on_rate_limit = True)
 user = 'michelleobama'
 
 class Game:
-    def __init__(self, user_name):
-        self.user_name = user_name
-        self.user = api.get_user(self.user_name)
+    def __init__(self, user_id):
+        self.user_id = user_id
+        self.user = api.get_user(self.user_id)
         self.friend = None
         #minimum of four
         self.verified_friends = list()
         self.choices = None
 
-    def find_verified_friends(self, user_name):
-        friends = api.friends(self.user_name, count = self.user.friends_count)
+    def find_verified_friends(self, user_id):
+        friends = api.friends(self.user_id, count = self.user.friends_count)
         # #print(friends)
         for friend in friends:
             # if friend.verified == True and friend.followers_count > self.follower_threshold and friend.protected == False:
@@ -80,7 +80,7 @@ def disp_1(username):
     rounds = list()
     gamer = Game(username)
     
-    gamer.find_verified_friends(gamer.user_name)
+    gamer.find_verified_friends(gamer.user_id)
     
     
     for _ in range(5):
@@ -103,7 +103,7 @@ def disp_2(username):
     gamer = Game(username)
     rounds = list()
     winner = None
-    gamer.find_verified_friends(gamer.user_name)
+    gamer.find_verified_friends(gamer.user_id)
 
     for _ in range(5):
 
