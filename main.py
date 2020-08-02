@@ -79,13 +79,17 @@ class Game:
 def disp_1(username): 
     rounds = list()
     gamer = Game(username)
+    
     gamer.find_verified_friends(gamer.user_name)
     
+    
     for _ in range(5):
-        # rand = random.randint(0, len(gamer.verified_friends)-1)
-
+        choices = []
         obj = gamer.random_tweet_wrapper()
-        rounds.append({'tweet' : obj[2], 'tweet_time' : obj[1], 'correct_user_name' : obj[0], 'choices' : gamer.choices})
+        for choice in gamer.choices:
+            choices.append(choice.name)
+
+        rounds.append({'tweet' : obj[2], 'tweet_time' : obj[1], 'correct_user_name' : obj[0], 'choices' : choices})
         # #print(rounds)
     # ret = gamer.random_tweet_wrapper()
     # return {'game_type': 'who_tweeted_this', 'rounds' : rounds}
