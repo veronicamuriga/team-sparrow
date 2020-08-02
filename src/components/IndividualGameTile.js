@@ -7,14 +7,16 @@ class IndividualGameTile extends React.Component{
     render(){
         return(
             <div className="GameTile">
+
                 <div className="Daily">
-                <h1>#DailyTrivia: Check in Daily</h1>
+                    <h1 id="daily-title">#DailyTrivia: Check in Daily</h1>
+                </div>
                 <DailyGameCard/>
-                </div>
-                <div className="Info">
-                <h1>#StayInformed: Test your Knowledge of Important Topics</h1>
+
+                <div className="Daily">
+                    <h1 id="info-title">#StayInformed: Test your Knowledge of Important Topics</h1>
+                </div>                
                 <InfoGameCard/>
-                </div>
             </div>
         );
     }
@@ -22,6 +24,13 @@ class IndividualGameTile extends React.Component{
 
 }
 
+
+/*
+<div className="Info">
+                
+                <InfoGameCard/>
+                </div>
+*/
 
 
 

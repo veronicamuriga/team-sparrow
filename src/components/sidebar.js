@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "@reach/router";
 import '../styling/sidebar.css';
 import '../styling/setup.css';
 
@@ -14,10 +15,10 @@ class SideBar extends React.Component{
     
             
             <div className="sidebar">
-            <a href={DashBoard} className="menuSelect"><img src={logo} alt="Twivia logo"></img></a>
-            <a className="menuSelect"><img src={leaderboard} alt="Leaderboard icon"></img></a>
-            <a className="menuSelect"><img src={party} alt="Party icon"></img></a>
-            <a className="menuSelect"><img src={logout} alt="Logout icon"></img></a>
+            <Link to="/dashboard" className="menuSelect"><img src={logo} alt="Twivia logo"></img><span class="menu-text">Dashboard</span></Link>
+            <Link to="/leaderboard" className="menuSelect"><img src={leaderboard} alt="Leaderboard icon"></img><span class="menu-text">Leaderboard</span></Link>
+            <Link to="/partyplay" className="menuSelect"><img src={party} alt="Party icon"></img><span class="menu-text">Party</span></Link>
+            <Link to="" className="menuSelect"><img src={logout} alt="Logout icon"></img><span class="menu-text">Logout</span></Link>
                 
             </div>
         );

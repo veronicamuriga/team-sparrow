@@ -1,8 +1,8 @@
 .DailyGameCard{
     display: flex;
     flex-direction: row;
-    width: calc(100% - 75px);
-    /* justify-content: center; */
+    width: 100%;
+    justify-content: space-between;
     font-size: 1.5em;
     /* margin:50px; */
 
@@ -14,14 +14,13 @@
     overflow: hidden;
     background-color:var(--bg-primary);
     align-items: center;
-    justify-content: center;
-    margin-right: 30px;
-    width: 30%;
+    justify-content: space-between;
+    width: 32%;
     text-align: center;
     flex-wrap: wrap;
     border: solid;
     border-width: 2px;
-    border-color: var(--bg-secondary)
+    border-color: var(--bg-secondary);
 
 }
 
@@ -37,10 +36,24 @@
 
 .card-text p{
     color: var(--bg-secondary);
-    font-weight: 500;
-
+    font-weight: 700;
+    font-size: 1.25rem;
+    transition: var(--transition-speed);
 }
 
-#who{
+.daily-accent:hover{
+    color: var(--accent-secondary);
+    transition: var(--transition-speed);
+}
+
+#who-said{
     background-image: url("https://images.unsplash.com/photo-1551817958-d9d86fb29431?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80");
+}
+
+#who-liked{
+    background-image: url("https://images.unsplash.com/photo-1561210596-383464a42be3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80");
+}
+
+#who-follows{
+    background-image: url("https://images.unsplash.com/photo-1525770041010-2a1233dd8152?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80");
 }

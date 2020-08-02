@@ -4,7 +4,7 @@ import '../App.css';
 import LandingPage from '../pages/landingPage';
 import Dashboard from '../pages/dashboard';
 import PartyPage from '../pages/partyPage';
-import GameDisplayPage from '../pages/gameDisplayPage';
+import FollowersGameDisplayPage from '../pages/FollowersGameDisplayPage';
 import LeaderboardPage from '../pages/LeaderboardPage';
 import { UserContext } from '../contexts/UserContext';
 import Loading from './Loading'
@@ -19,7 +19,7 @@ export default function Application() {
 				<Router>
 					<LandingPage path="/" />
 					<Dashboard path="/dashboard" />
-					<LeaderboardPage path="/leaderboard"/>
+					<FollowersGameDisplayPage path="/gameplay/followersgame"/>
 					<GameDisplayPage path="/gamepage" />
 					<PartyPage path="/partyplay" />
 				</Router>
