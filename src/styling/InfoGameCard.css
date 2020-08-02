@@ -45,6 +45,7 @@
     color: var(--bg-secondary);
     font-weight: 700;;
     font-size: 1.25rem;
+    margin: 0;
 }
 
 .daily-accent:hover{
@@ -58,6 +59,7 @@
     color: var(--bg-secondary);
     font-weight: 700;;
     font-size: 1.25rem;
+    margin: 0;
 }
 
 .info-accent:hover{
