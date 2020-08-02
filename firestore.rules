@@ -1,8 +1,67 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write: if false;
+  
+  	match /users/{userId} {
+		allow read: if isSignedIn() && hasUserDocument();
+      	allow create: if isSignedIn() && isValidUserDocument();
+      
+      	allow update: if isSignedIn() && 
+      		hasUserDocument() && 
+        	isValidUserDocumentUpdate();
+        
+      	allow delete: if false;
+      
+      	// The user document is valid (returns true) if:
+      	// - The document has the same UID as their auth account (Avoid spoofing)
+      	// - The id referenced on the document is the users real uid
+      	// - The document data is valid and initialized to correct starting values
+      	function isValidUserDocument() {
+      		return (
+				request.auth.uid == userId &&
+				request.resource.data.id == request.auth.uid &&
+				request.resource.data.twitter_id != null &&
+				request.resource.data.name > "" &&
+				request.resource.data.role == "user" &&
+				request.resource.data.stats.who_has_more_followers.correct_answers == 0 &&
+				request.resource.data.stats.who_has_more_followers.incorrect_answers == 0 &&
+				request.resource.data.stats.who_has_more_followers.games_played == 0 &&
+				request.resource.data.stats.who_has_more_followers.score == 0 &&
+				request.resource.data.stats.guess_who_tweeted.correct_answers == 0 &&
+				request.resource.data.stats.guess_who_tweeted.incorrect_answers == 0 &&
+				request.resource.data.stats.guess_who_tweeted.games_played == 0 &&
+				request.resource.data.stats.guess_who_tweeted.score == 0 &&
+				request.resource.data.stats.total.correct_answers == 0 &&
+				request.resource.data.stats.total.incorrect_answers == 0 &&
+				request.resource.data.stats.total.games_played == 0 &&
+				request.resource.data.stats.total.score == 0 &&
+				request.resource.data.time_created == request.time &&
+				request.resource.data.last_updated == request.time
+			);
+		}
+     	// The user document update is valid (returns true) if:
+      	function isValidUserDocumentUpdate() {
+			return (
+				request.auth.uid == userId &&
+			request.resource.data.id == resource.data.id &&
+			request.resource.data.twitter_id == resource.data.id &&
+			request.resource.data.name == resource.data.name &&
+			request.resource.data.photoURL == resource.data.id &&
+			request.resource.data.role == resource.data.role &&
+			request.resource.data.time_created == resource.data.time_created &&
+			request.resource.data.last_updated == request.time
+			)
+      	}
+      
+		// Returns true if the user is currently signed in
+		function isSignedIn() {
+			return request.auth != null
+		}
+      
+		// Returns true if the user making the request has a user document
+		function hasUserDocument() {
+			return exists(/databases/$(database)/documents/users/$(request.auth.uid));
+		}
     }
   }
 }

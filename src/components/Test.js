@@ -1,23 +1,28 @@
-import React, { Component } from 'react'
-import Heroku from 'heroku-client'
+import React, {useContext} from 'react'
+import { UserContext } from '../contexts/UserContext'
+import {signOut} from './firebase'
 
 
-export default class Test extends Component {
+export default function Test() {
 
-	componentDidMount = () => {
-		console.log("mount.")
-		this.testCall()
+	const {signIn} = useContext(UserContext);
+
+	const signInTest = (event) => {
+		event.preventDefault();
+		signIn();
 	}
 
-	testCall = () => {
-		
+	const signOutTest = (event) => {
+		event.preventDefault();
+		signOut();
 	}
 
-	render() {
-		return (
-			<div>
 
-			</div>
-		)
-	}
+	return (
+		<div>
+			<button onClick={event => signInTest(event)}>Sign In</button><br/>
+			<button onClick={event => signOutTest(event)}>Sign Out</button>
+		</div>
+	)
 }
+
