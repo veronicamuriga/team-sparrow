@@ -1,31 +1,63 @@
-import React from 'react';
-import { Router } from "@reach/router";
+import React, {useContext} from 'react';
+import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom'
 import '../App.css';
 import LandingPage from '../pages/landingPage';
 import Dashboard from '../pages/dashboard';
-import PartyPage from '../pages/partyPage';
-import GameDisplayPage from '../pages/gameDisplayPage';
+// import PartyPage from '../pages/partyPage';
+import GameDisplayPage from '../pages/GameDisplayPage';
 import LeaderboardPage from '../pages/LeaderboardPage';
+import WhoSaidDisplayPage from '../pages/WhoSaidDisplayPage';
+import { UserContext } from '../contexts/UserContext';
+import Loading from './Loading'
 
+export default function Application() {
 
-export default class Application extends React.Component{
-  constructor(props){
-    super(props);
-    this.state = {}
-  }
+	const {loading, userAuth} = useContext(UserContext)
 
-  render(){
-    return (
-    <div className= "App"> 
-      <Router>
-        <LandingPage path="/" />
-        <Dashboard path="/dashboard" />
-		<LeaderboardPage path="/leaderboard"/>
-        <GameDisplayPage path="/gamepage" />
-        <PartyPage path="/partyplay" />
-      </Router>
-    </div>
-   );
-  }
+	const getPages = () => {
+		const userPages = (
+			<Switch>
+				<Route exact path="/dashboard"><Dashboard/></Route>
+				<Route exact path="/play"><GameDisplayPage/></Route>
+				<Route exact path="/whoSaid"><WhoSaidDisplayPage/></Route>
+				<Route exact path="/leaderboard"><LeaderboardPage/></Route>
+				<Route path="/"><Redirect to="/dashboard"/></Route>
+			</Switch>
+		);
+		// Pages that users can view when not logged in
+		const publicPages = (
+			<Switch>
+				<Route path="/"><LandingPage/></Route>
+			</Switch>
+		);
+
+		var content = publicPages;
+		if(userAuth != null) {
+			content = userPages;
+		}
+		return content
+	}
+
+	// The main application with its content
+	const getApplication = () => {
+		return  (
+			<div className= "App"> 
+				<Router>
+					<Switch>
+						{getPages()}
+					</Switch>
+				</Router>
+			</div>
+		);
+	}
+
+	// The loading screen
+	const getLoading = () => {
+		return (<Loading/>)
+	};
+	return (
+		loading.size == 0 ? getApplication() : getLoading()
+  );
+  
 }
 

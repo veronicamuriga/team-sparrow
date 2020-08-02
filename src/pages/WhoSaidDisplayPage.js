@@ -1,8 +1,9 @@
 import React from 'react';
-import '../styling/gameDisplayPage.css';
+import '../styling/WhoSaidDisplayPage.css';
 import NavBar from '../components/navBar';
 import IndividualGameTile from '../components/IndividualGameTile';
 import SideBar from '../components/sidebar';
+import WhoSaid from '../components/WhoSaid';
 
 
 class GameDisplayPage extends React.Component{
@@ -10,8 +11,8 @@ class GameDisplayPage extends React.Component{
         return(
             <div className="GameDisplay">
                 <NavBar/>
-                <IndividualGameTile/>
                 <SideBar/>
+                <WhoSaid/>
             </div>
         );
     }

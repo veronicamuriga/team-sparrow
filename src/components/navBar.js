@@ -11,8 +11,8 @@ class NavBar extends React.Component{
                 <img className="playerIcon" src={user}></img>
                 <div className="playerInfo">
                     
-                    <p>Player: @account</p>
-                    <p>Points: 12345</p>
+                    <p>Player: @dodie_iro</p>
+                    <p>Points: 4850</p>
 
                 </div>
             </div>

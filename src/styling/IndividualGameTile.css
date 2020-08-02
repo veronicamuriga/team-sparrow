@@ -1,16 +1,20 @@
 .GameTile h1{
-    color: #c84036;
+    
     margin-top: 20px;
 }
 
+#daily-title{
+    color: var(--accent-secondary);
+}
+
+#info-title{
+    color: var(--accent-primary);
+}
+
 .GameTile{
-    width: 100%;
-    padding-left: 1rem;
+    
+    padding: 0 5rem;
     display: flex;
     flex-flow: column;
     margin-left: 75px;
-}
-
-.Daily{
-
 }

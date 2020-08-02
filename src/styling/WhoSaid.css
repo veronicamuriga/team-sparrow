@@ -1,0 +1,45 @@
+.WhoSaid{
+    
+margin-left: 75px;
+width: calc(100% - 75px);
+}
+
+.who-said-container{
+    width: 80%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.game-options{
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    width: 70%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+button{
+    display: block;
+    width: 49%;
+    margin: 1rem 0 0;
+    height: 3rem;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    border-radius: 5px;
+    background-color: #1DA2F2;
+    align-items: center;
+    justify-content: center;
+    border: 0px;
+    padding: 10px;
+    font-size: large;
+    color: white;
+}
+
+button:hover{
+    background-color: var(--accent-primary);
+    transition: var(--transition-speed);
+}

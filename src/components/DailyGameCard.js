@@ -6,10 +6,17 @@ class DailyGameCard extends React.Component{
         return(
             <div className="DailyGameCard">
                 <div className="DailyCards">
-                    <div className="card-cover" id="who"></div>
-                    <div className="card-text"></div><p>#WhoSaidThat?</p></div>
-                <div className="DailyCards">#WhoLikedIt?</div>
-                <div className="DailyCards">#WhoHasMoreFollowers?</div>
+                    <div className="card-cover" id="who-said"></div>
+                    <div className="card-text"><button className="daily-accent">#WhoSaidThat?</button></div>
+                </div>
+                <div className="DailyCards">
+                    <div className="card-cover" id="who-liked"></div>
+                    <div className="card-text"><button className="daily-accent">#WhoHasMoreFollowers?</button></div>
+                </div>
+                <div className="DailyCards">
+                    <div className="card-cover" id="who-follows"></div>
+                    <div className="card-text"><button className="daily-accent">#WhoLikedIt?</button></div>
+                </div>
             </div>
         );
     }

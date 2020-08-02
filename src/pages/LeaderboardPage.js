@@ -1,8 +1,7 @@
 import React from 'react';
 import SideBar from '../components/sidebar';
 import NavBar from '../components/navBar';
-import GameTile from '../components/IndividualGameTile';
-
+import Leaderboard from '../components/Leaderboard'
 
 
 class LeaderboardPage extends React.Component{
@@ -10,7 +9,7 @@ class LeaderboardPage extends React.Component{
         return(
             <div className="Leaderboard">
                 <NavBar/>
-                <GameTile/>
+                <Leaderboard/>
                 <SideBar/>
             </div>
         );
