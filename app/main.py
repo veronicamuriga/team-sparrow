@@ -19,7 +19,7 @@ user = 'veronicamuriga'
 class Game:
     def __init__(self, user_name):
         self.user_name = user_name
-        self.user = api.get_user(self.user_name)
+        # self.user = api.get_user(self.user_name)
         self.friend = None
         self.verified_friends = list()
         self.friend_obj = None
@@ -31,7 +31,7 @@ class Game:
             # if friend.verified == True and friend.followers_count > self.follower_threshold and friend.protected == False:
             if friend.verified == True and friend.protected == False:
                 self.verified_friends.append(friend)
-            if len(self.verified_friends) > 4:
+            if len(self.verified_friends) > 8:
                 break
         # print(self.verified_friends)
 
@@ -64,7 +64,7 @@ class Game:
             tweet = self.friend_tweets.pop(status_ix)
             rt = hasattr(tweet, 'retweeted_status') or tweet.in_reply_to_status_id != None
 
-        return [self.friend.name, tweet.text]
+        return [self.friend.name, tweet.created_at, tweet.text]
 
 
 
@@ -81,13 +81,16 @@ def home():
 @app.route('/who_tweeted_this/<username>', methods = ['GET']) 
 def disp(username): 
     rounds = list()
+    friends_set = set()
     gamer = Game(username)
     gamer.find_verified_friends(gamer.user_name)
+    for x in gamer.verified_friends:
+        friends_set.add(x.name)
+
     for _ in range(4):
         obj = gamer.random_tweet_wrapper()
-        rounds.append({'tweet' : obj[1], 'correct_user_name' : obj[0], 'choices' : gamer.verified_friends})
+        rounds.append({'tweet' : obj[2], 'tweet_time' : obj[1] 'correct_user_name' : obj[0], 'choices' : friends_set})
         # print(rounds)
-
     # ret = gamer.random_tweet_wrapper()
     
     return jsonify({'game_type': 'who_tweeted_this', 'rounds' : rounds})
@@ -97,10 +100,27 @@ def disp(username):
 @app.route('/who_has_more_followers/<username>', methods = ['GET']) 
 def disp(username): 
     gamer = Game(username)
-    ret = gamer.random_tweet_wrapper()    
+    rounds = list()
+    gamer.find_verified_friends(gamer.user_name)
+
+    for _ in range(2):
+
+        rand_1 = random.randint(1, len(gamer.verified_friends))
+        rand_2 = random.randint(1, len(gamer.verified_friends))
+        while rand1 == rand2:
+            rand_2 = random.randint(1, len(gamer.verified_friends))
+
+        if gamer.verified_friends[rand_1].followers_count > gamer.verified_friends[rand_1].followers_count:
+            winner = gamer.verified_friends[rand_1]
+        else:
+            gamer.verified_friends[rand_2]
+        rounds.append({'choices' : gamer.verified_friends[rand_1].name, gamer.verified_friends[rand_2].name, 'winner' : winner.name, 'winner_followers' : winner.follower_count})
+        
+    return jsonify('game_type': 'who_has_more_followers', 'rounds' : rounds )
 
 # driver function 
 if __name__ == '__main__': 
+    
     app.run(debug = True) 
 
 
