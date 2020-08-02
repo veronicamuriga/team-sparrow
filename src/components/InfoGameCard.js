@@ -2,12 +2,6 @@ import React from 'react';
 import '../styling/InfoGameCard.css';
 
 class InfoGameCard extends React.Component{
-
-	test = (event) => {
-		event.preventDefault();
-		console.log("PRESS")
-	}
-
     render(){
         return(
             <div className="InfoGameCard">

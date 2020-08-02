@@ -1,33 +1,36 @@
 import React from 'react';
 import '../styling/FollowersGame.css';
-import account1 from '../img/logo.png';
-import account2 from '../img/logo.png';
+import FollowersGameRound from './followers_game/FollowersGameRound';
 
 class FollowersGame extends React.Component{
+	constructor() {
+		super()
+	}
+
+
+	state = {
+		roundsLeft: 5,
+		rounds: [],
+		currentRound: null
+	}
+
+	startRound = () => {
+		var roundsLeft = [...this.state.rounds];
+
+		var nextRound = roundsLeft.pop();
+		this.setState({...this.state, currentRound: nextRound, roundsLeft: roundsLeft.length, rounds: roundsLeft})
+	}
+
+	componentDidMount = () => {
+		this.startRound();
+	}	
+
     render(){
         return(
             <div className="FollowersGame">
             <h1 className="game-title">#WhoHasMoreFollowers?</h1>
                 <div className="followers-container">
-                    
-                    
-                    <div className="followers-account">
-                        <div className="followers-picture"><img src={account1}></img></div>
-                        <div className="followers-text">
-                        <p className="followers-handle">@ladygaga</p>
-                            <button className="followers-name">Lady Gaga</button>
-                            
-                        </div>
-                    </div>
-
-                    <div className="followers-account">
-                        <div className="followers-picture"><img src={account2}></img></div>
-                        <div className="followers-text">
-                        <p className="followers-handle">@arianagrande</p>
-                            <button className="followers-name">Ariana Grande</button>
-                            
-                        </div>
-                    </div>
+					<FollowersGameRound data={this.currentRound} roundFinished={this.startRound}/>
                 </div>
             </div>
         );
