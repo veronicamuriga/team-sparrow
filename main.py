@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request 
+import datetime
   
 # creating a Flask app 
 app = Flask(__name__) 
@@ -86,24 +87,22 @@ class Game:
 
 @app.route('/home/who_tweeted_this/<username>', methods = ['GET', 'POST']) 
 def disp_1(username): 
-    rounds = list()
-    gamer = Game(username)
-    gamer.find_verified_friends(gamer.user_id)
+    # rounds = list()
+    # gamer = Game(username)
+    # gamer.find_verified_friends(gamer.user_id)
 
-    for _ in range(5):
-        choices = {}
-        obj = gamer.random_tweet_wrapper()
-        for choice in gamer.choices:
-            choices[choice.name] = choice.screen_name
+    # for _ in range(5):
+    #     choices = {}
+    #     obj = gamer.random_tweet_wrapper()
+    #     for choice in gamer.choices:
+    #         choices[choice.name] = choice.screen_name
 
-        rounds.append({'tweet' : obj[2], 'tweet_time' : obj[1], 'correct_user_name' : obj[0], 'choices' : choices})
-        # ##print(rounds)
-    # ret = gamer.random_tweet_wrapper()
-    return {'game_type': 'who_tweeted_this', 'rounds' : rounds}
-    
+    #     rounds.append({'tweet' : obj[2], 'tweet_time' : obj[1], 'correct_user_name' : obj[0], 'choices' : choices})
+       
+    # return {'game_type': 'who_tweeted_this', 'rounds' : rounds}
+    rounds = [{'tweet': '"For all those people out there who in some way can carry on the efforts against this kind of undermining of democr… https://t.co/B3Qwsz8gzz', 'tweet_time': datetime.datetime(2020, 7, 6, 16, 0, 9), 'correct_user_name': 'All On The Line', 'choices': {'Joe Biden': 'JoeBiden', 'All On The Line': 'allontheline', 'When We All Vote': 'WhenWeAllVote', 'The Obama Foundation': 'ObamaFoundation'}}, {'tweet': 'The year in review: Check out our top 10 favorite #LetsMove moments from 2016 → https://t.co/bjntWHwOKh https://t.co/L9dd27GLnP', 'tweet_time': datetime.datetime(2016, 12, 19, 16, 52, 33), 'correct_user_name': "Let's Move! (NARA)", 'choices': {"Let's Move! (NARA)": 'letsmove', 'Melania Trump': 'FLOTUS', 'When We All Vote': 'WhenWeAllVote', 'Dr. Jill Biden': 'DrBiden'}}, {'tweet': '“The people who represent us vote on laws that directly affect our life span, access to care, access to education a… https://t.co/3nfA0UH6Pc', 'tweet_time': datetime.datetime(2020, 7, 18, 21, 0), 'correct_user_name': 'When We All Vote', 'choices': {'Jim Messina': 'Messina2012', 'Joining Forces': 'JoiningForces', "Let's Move! (NARA)": 'letsmove', 'When We All Vote': 'WhenWeAllVote'}}, {'tweet': 'Everybody has their own story. \nEverybody is on their own journey. \n\nWhat is your Becoming story? Watch BECOMING on… https://t.co/8zDLD72ef1', 'tweet_time': datetime.datetime(2020, 5, 24, 18, 0, 53), 'correct_user_name': 'Better Make Room 🎓', 'choices': {'Vice President Mike Pence': 'VP', 'Better Make Room 🎓': 'BetterMakeRoom', 'All On The Line': 'allontheline', 'The Obama Foundation': 'ObamaFoundation'}}, {'tweet': "These military kids are members of the only year-round Special Olympics cheer squad on a military base. We're so im… https://t.co/vw2N4eTMpw", 'tweet_time': datetime.datetime(2019, 2, 19, 16, 46, 14), 'correct_user_name': 'Biden Foundation', 'choices': {'When We All Vote': 'WhenWeAllVote', 'Biden Foundation': 'bidenfoundation', 'Girls Opportunity Alliance': 'girlsalliance', 'Reach Higher': 'ReachHigher'}}]    
     return jsonify({'game_type': 'who_tweeted_this', 'rounds' : rounds})
 
-    # 'correct_user_id': ret[0], 'tweet' : ret[1], 'choices' : {ret[0], gamer.verified_friends[:min({len(gamer.verified_friends), 3})]}}) 
 
 @app.route('/home/who_has_more_followers/<username>', methods = ['GET', 'POST']) 
 def disp_2(username): 
@@ -145,7 +144,7 @@ def disp_2(username):
 # gamer = Game(user)
 # ##print(gamer.random_tweet_wrapper())
 
-# disp_1(user)
+disp_1(user)
 
 # disp_2(user)
 
