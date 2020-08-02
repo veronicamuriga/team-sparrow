@@ -1,0 +1,16 @@
+.GameTile h1{
+    color: #c84036;
+    margin-top: 20px;
+}
+
+.GameTile{
+    width: 100%;
+    padding-left: 1rem;
+    display: flex;
+    flex-flow: column;
+    margin-left: 75px;
+}
+
+.Daily{
+
+}

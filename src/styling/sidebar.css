@@ -1,0 +1,35 @@
+.sidebar{
+  height: 100vh;
+  width: 75px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: start;
+  background-color: var(--bg-secondary);
+  transition: var(--transition-speed);
+}
+
+.sidebar:hover{
+  width: 300px;
+  transition: var(--transition-speed);
+  justify-content: start;
+}
+
+.menuSelect img{
+  padding: 1rem 0.75rem;
+  width: 50px;
+  height: 50px;
+}
+
+.menuSelect{
+  width: 100%;
+  transition: var(--transition-speed);
+}
+
+.menuSelect:hover{
+  background-color: var(--accent-secondary);
+  transition: var(--transition-speed);
+}
