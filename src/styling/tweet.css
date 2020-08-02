@@ -3,9 +3,9 @@
   flex-flow: row;
   align-items: center;
   justify-content: start;
-  margin: 40vh auto;
+  margin-top: 1rem;
   background-color: var(--text-primary);
-  width: 500px;
+  width: 70%;
   height: 150px;
   border-radius: 15px;
 }

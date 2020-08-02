@@ -6,6 +6,7 @@ import Dashboard from '../pages/dashboard';
 // import PartyPage from '../pages/partyPage';
 import GameDisplayPage from '../pages/GameDisplayPage';
 import LeaderboardPage from '../pages/LeaderboardPage';
+import WhoSaidDisplayPage from '../pages/WhoSaidDisplayPage';
 import { UserContext } from '../contexts/UserContext';
 import Loading from './Loading'
 
@@ -46,15 +47,16 @@ export default function Application() {
 					</Switch>
 				</Router>
 			</div>
-		)
+		);
 	}
 
 	// The loading screen
 	const getLoading = () => {
 		return (<Loading/>)
-	}
+	};
 	return (
 		loading.size == 0 ? getApplication() : getLoading()
-	);
+  );
+  
 }
 
