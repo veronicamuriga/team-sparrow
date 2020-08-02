@@ -26,6 +26,11 @@
     color: white;
 }
 
+.LandingpageTile button:hover{
+    background-color: #1DA2F2;
+    cursor: pointer;
+}
+
 .hero{
     display: flex;
     flex-flow: row;
@@ -49,14 +54,27 @@
 .hero-text h1{
     font-size: 2.5rem;
     margin: 0;
+    padding-top: 1rem;
 }
 
 .hero-text p{
     font-size: 1rem;
+    padding: 0 1rem;
 }
 
 .hero-text em{
     color: var(--accent-secondary);
+}
+
+.logo{
+    width: 100px;
+    height: 100px;
+    margin: auto;
+}
+
+.logo img{
+    width: 100%;
+    height: auto;
 }
 
 .hero-media{
