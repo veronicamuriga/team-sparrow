@@ -18,6 +18,29 @@
   justify-content: start;
 }
 
+.menu-text{
+  margin: 0;
+  font-size: 0px;
+  visibility: hidden;
+  transition: visibility 0s, opacity 0.3s linear;
+  transition: 300ms;
+}
+
+.sidebar:hover .menu-text{
+  position: absolute;
+  left: 5rem;
+  padding-top: 1.55rem;
+  font-size: 2rem;
+  display: inline;
+  color: var(--bg-primary);
+  font-weight: 700;
+  visibility: visible;
+  transition: visibility 0s, opacity 0.3s linear;
+  transition: 300ms;
+  text-align: center;
+
+}
+
 .menuSelect img{
   padding: 1rem 0.75rem;
   width: 50px;

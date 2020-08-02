@@ -1,0 +1,62 @@
+.followers-container{
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+    padding-top: 3rem;
+    padding-left: 75px;
+}
+
+.followers-account{
+    display: flex;
+    flex-flow: column;
+    align-items:center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 15px;
+    min-width: 25rem;
+    min-height: 25rem;
+    margin: 0.5rem;
+}
+
+.followers-picture{
+    width: 150px;
+    height: 150px;
+    border: solid;
+    border-color: var(--bg-secondary);
+    border-width: 2px;
+    border-radius: 200px;
+}
+
+.followers-picture img{
+    width: 150px;
+    height: 150px;
+}
+
+.followers-name{
+    height: 3rem;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    border-radius: 5px;
+    background-color: #1DA2F2;
+    align-items: center;
+    justify-content: center;
+    border: 0px;
+    padding: 10px;
+    font-size: large;
+    color: white;
+}
+
+.followers-handle{
+    color: var(--bg-primary);
+    font-weight: 700;
+    width: 100%;
+    text-align: center;
+}
+
+.game-title{
+    text-align: center;
+    margin-left: 75px;
+}

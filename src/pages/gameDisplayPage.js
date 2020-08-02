@@ -3,6 +3,7 @@ import '../styling/gameDisplayPage.css';
 import NavBar from '../components/navBar';
 import IndividualGameTile from '../components/IndividualGameTile';
 import SideBar from '../components/sidebar';
+import FollowersGame from '../components/FollowersGame';
 
 
 class GameDisplayPage extends React.Component{
@@ -10,8 +11,8 @@ class GameDisplayPage extends React.Component{
         return(
             <div className="GameDisplay">
                 <NavBar/>
-                <IndividualGameTile/>
                 <SideBar/>
+                <FollowersGame/>
             </div>
         );
     }

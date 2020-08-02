@@ -21,7 +21,7 @@ export default class Application extends React.Component{
         <LandingPage path="/" />
         <Dashboard path="/dashboard" />
 		<LeaderboardPage path="/leaderboard"/>
-        <GameDisplayPage path="/gamepage" />
+        <GameDisplayPage path="/gameplay" />
         <PartyPage path="/partyplay" />
       </Router>
     </div>
