@@ -97,7 +97,7 @@ def disp_1(username):
 
         obj = gamer.random_tweet_wrapper()
         randomize = {obj[0], gamer.choice_b.name}
-        rounds.append({'tweet' : obj[2], 'tweet_time' : obj[1], 'correct_user_name' : obj[0], 'choices' : [randomize.pop(), randomoize.pop()]})
+        rounds.append({'tweet' : obj[2], 'tweet_time' : obj[1], 'correct_user_name' : obj[0], 'choices' : [randomize.pop(), randomize.pop()]})
         # #print(rounds)
     # ret = gamer.random_tweet_wrapper()
     # return {'game_type': 'who_tweeted_this', 'rounds' : rounds}
@@ -138,7 +138,7 @@ def disp_2(username):
 # gamer = Game(user)
 # #print(gamer.random_tweet_wrapper())
 
-# #print(disp(user))
+# print(disp_2(user))
 
 
 
