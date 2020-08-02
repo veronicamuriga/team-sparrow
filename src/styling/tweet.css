@@ -1,0 +1,35 @@
+.tweet{
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: start;
+  margin: 40vh auto;
+  background-color: var(--text-primary);
+  width: 500px;
+  height: 150px;
+  border-radius: 15px;
+}
+
+.tweetText{
+  margin-top: 1rem;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  align-content: center;
+}
+.tweet h3{
+  margin: 0;
+  padding: 0.5rem 1rem;
+  color: var(--bg-secondary);
+}
+
+.tweet p{
+  margin: 0;
+  padding: 0.5rem 1rem;
+  color: var(--bg-primary);
+}
+
+.avatar{
+  height: 70%;
+  margin: 1rem;
+}
