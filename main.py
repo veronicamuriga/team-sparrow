@@ -23,6 +23,7 @@ class Game:
         self.friend = None
         self.verified_friends = list()
         self.friend_obj = None
+        self.choice_b = None
 
     def find_verified_friends(self, user_name):
         friends = api.friends(self.user_name, count = self.user.friends_count)
@@ -31,7 +32,7 @@ class Game:
             # if friend.verified == True and friend.followers_count > self.follower_threshold and friend.protected == False:
             if friend.verified == True and friend.protected == False:
                 self.verified_friends.append(friend)
-            if len(self.verified_friends) > 8:
+            if len(self.verified_friends) > 15:
                 break
         # #print(self.verified_friends)
 
@@ -41,13 +42,18 @@ class Game:
         # self.find_verified_friends(self.user_name)
 
         # end = min({200, len(self.verified_friends)-1})
-        end = min({len(self.verified_friends)-1 ,4})
-        rand = random.randint(1, end)
+        end = min({len(self.verified_friends)-1 ,15})
+        rand_1 = random.randint(0, end)
+        rand_2 = random.randint(0, end)
+        while rand_1 == rand_2:
+            rand_2 = random.randint(0, end)
+
         #print(len(self.verified_friends), rand)
 
         #save details of thaat friend
         # self.friend = api.get_user(self.verified_friends[rand])
-        self.friend = self.verified_friends[rand]
+        self.friend = self.verified_friends[rand_1]
+        self.choice_b = self.verified_friends[rand_2]
         #print(self.friend.name)
 
         # 200 appears to be the upper bound of tweets we can access at a time
@@ -84,12 +90,14 @@ def disp_1(username):
     friends = list()
     gamer = Game(username)
     gamer.find_verified_friends(gamer.user_name)
-    for x in gamer.verified_friends:
-        friends.append(x.name)
+    
 
-    for _ in range(4):
+    for _ in range(5):
+        # rand = random.randint(0, len(gamer.verified_friends)-1)
+
         obj = gamer.random_tweet_wrapper()
-        rounds.append({'tweet' : obj[2], 'tweet_time' : obj[1], 'correct_user_name' : obj[0], 'choices' : friends})
+        randomize = {obj[0], gamer.choice_b}
+        rounds.append({'tweet' : obj[2], 'tweet_time' : obj[1], 'correct_user_name' : obj[0], 'choices' : [randomize.pop(), randomoize.pop()]})
         # #print(rounds)
     # ret = gamer.random_tweet_wrapper()
     # return {'game_type': 'who_tweeted_this', 'rounds' : rounds}
@@ -105,7 +113,7 @@ def disp_2(username):
     winner = None
     gamer.find_verified_friends(gamer.user_name)
 
-    for _ in range(2):
+    for _ in range(5):
 
         rand_1 = random.randint(0, len(gamer.verified_friends)-1)
         rand_2 = random.randint(0, len(gamer.verified_friends)-1)
