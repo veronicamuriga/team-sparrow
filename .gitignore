@@ -29,3 +29,7 @@ functions/.eslintrc.json
 functions/.gitignore
 functions/package.json
 functions/package-lock.json
+ui-debug.log
+pubsub-debug.log
+firebase-debug.log
+firestore-debug.log
