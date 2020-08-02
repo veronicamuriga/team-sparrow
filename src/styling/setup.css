@@ -1,0 +1,14 @@
+:root {
+  font-size: 16px;
+  font-family: 'Open Sans';
+  --text-primary: #fff;
+  --accent-primary: #D81E1A;
+  --accent-secondary: #FFA600;
+  --bg-primary: #141F2C;
+  --bg-secondary: #1DA2F2;
+  --transition-speed: 300ms;
+}
+
+body{
+  background-color: var(--bg-primary);
+}
