@@ -84,10 +84,10 @@ def disp_1(username):
     
     
     for _ in range(5):
-        choices = []
+        choices = {}
         obj = gamer.random_tweet_wrapper()
         for choice in gamer.choices:
-            choices.append(choice.name)
+            choices[choice.name] = choice.screen_name
 
         rounds.append({'tweet' : obj[2], 'tweet_time' : obj[1], 'correct_user_name' : obj[0], 'choices' : choices})
         # #print(rounds)
