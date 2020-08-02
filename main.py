@@ -38,24 +38,7 @@ class Game:
 
 
     def get_random_friend(self):
-        #get random friend
-        # self.find_verified_friends(self.user_name)
-
-        # end = min({200, len(self.verified_friends)-1})
-        # end = min({len(self.verified_friends)-1 ,15})
-        # rand = random.randint(0, k)
-        # rand_2 = random.randint(0, end)
-        # while rand_1 == rand_2:
-        #     rand_2 = random.randint(0, end)
-
-        #print(len(self.verified_friends), rand)
-
-        #save details of thaat friend
-        # self.friend = api.get_user(self.verified_friends[rand])
-        # self.friend = self.verified_friends[rand_1]
-        # self.choice_b = self.verified_friends[rand_2]
-        #print(self.friend.name)
-        k = min(4, len(self.verified_friends)-1)
+        k = min(4, len(self.verified_friends))
         rand = random.randint(0, k-1)
 
         self.choices = random.sample(self.verified_friends, k)
