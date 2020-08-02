@@ -79,7 +79,7 @@ class Game:
 # on the terminal type: curl http://127.0.0.1:5000 / home / 10 
 # this returns 100 (square of 10) 
 @app.route('/home/who_tweeted_this/<username>') 
-def disp(username): 
+def disp_1(username): 
     rounds = list()
     friends_set = set()
     gamer = Game(username)
@@ -99,7 +99,7 @@ def disp(username):
     # 'correct_user_id': ret[0], 'tweet' : ret[1], 'choices' : {ret[0], gamer.verified_friends[:min({len(gamer.verified_friends), 3})]}}) 
 
 @app.route('/home/who_has_more_followers/<username>', methods = ['GET', 'POST']) 
-def disp(username): 
+def disp_2(username): 
     gamer = Game(username)
     rounds = list()
     winner = None
