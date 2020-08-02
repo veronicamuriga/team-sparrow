@@ -26,6 +26,11 @@
     color: white;
 }
 
+.LandingpageTile button:hover{
+    background-color: #1DA2F2;
+    cursor: pointer;
+}
+
 .hero{
     display: flex;
     flex-flow: row;

@@ -26,7 +26,7 @@ class SideBar extends React.Component{
             <Link to="/dashboard" className="menuSelect"><img src={logo} alt="Twivia logo"></img><span className="menu-text">Dashboard</span></Link>
             <Link to="/leaderboard" className="menuSelect"><img src={leaderboard} alt="Leaderboard icon"></img><span className="menu-text">Leaderboard</span></Link>
             <Link to="/partyplay" className="menuSelect"><img src={party} alt="Party icon"></img><span className="menu-text">Party</span></Link>
-            <button onClick = {this.signOutNow}className="menuSelect"><img src={logout} alt="Logout icon"></img><span className="menu-text">Logout</span></button>
+            <button onClick = {this.signOutNow}className="menuSelect"><img src={logout} alt="Logout icon"></img><span className="logout-text">Logout</span></button>
                 
             </div>
         );
