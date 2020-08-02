@@ -59,7 +59,7 @@ class Game:
         self.get_random_friend()
         #check if tweet is a retweet
         while rt:
-            status_ix = random.randint(1, len(self.friend_tweets)-1)
+            status_ix = random.randint(0, len(self.friend_tweets)-1)
             # #print("statuses:", len(self.friend_tweets), "actual", self.friend.statuses_count)
             tweet = self.friend_tweets.pop(status_ix)
             rt = hasattr(tweet, 'retweeted_status') or tweet.in_reply_to_status_id != None
@@ -81,15 +81,15 @@ class Game:
 @app.route('/home/who_tweeted_this/<username>', methods = ['GET', 'POST']) 
 def disp_1(username): 
     rounds = list()
-    friends_set = set()
+    friends_set = list()
     gamer = Game(username)
     gamer.find_verified_friends(gamer.user_name)
     for x in gamer.verified_friends:
-        friends_set.add(x.name)
+        friends_set.append(x.name)
 
     for _ in range(4):
         obj = gamer.random_tweet_wrapper()
-        rounds.append({'tweet' : obj[2], 'tweet_time' : obj[1], 'correct_user_name' : obj[0], 'choices' : friends_set})
+        rounds.append({'tweet' : obj[2], 'tweet_time' : obj[1], 'correct_user_name' : obj[0], 'choices' : friends})
         # #print(rounds)
     # ret = gamer.random_tweet_wrapper()
     # return {'game_type': 'who_tweeted_this', 'rounds' : rounds}
