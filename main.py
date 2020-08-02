@@ -85,7 +85,7 @@ def disp_1(username):
     gamer = Game(username)
     gamer.find_verified_friends(gamer.user_name)
     for x in gamer.verified_friends:
-        friends_set.append(x.name)
+        friends.append(x.name)
 
     for _ in range(4):
         obj = gamer.random_tweet_wrapper()
