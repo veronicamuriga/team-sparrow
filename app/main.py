@@ -78,7 +78,7 @@ class Game:
 # the number to be squared is sent in the URL when we use GET 
 # on the terminal type: curl http://127.0.0.1:5000 / home / 10 
 # this returns 100 (square of 10) 
-@app.route('/home/who_tweeted_this/<username>', methods = ['GET', 'POST']) 
+@app.route('/home/who_tweeted_this/<username>') 
 def disp(username): 
     rounds = list()
     friends_set = set()
