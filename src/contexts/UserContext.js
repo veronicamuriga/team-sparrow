@@ -6,7 +6,7 @@ export default class UserContext extends Component {
 	render() {
 		return (
 			<div>
-				
+				{this.props.children}
 			</div>
 		)
 	}
