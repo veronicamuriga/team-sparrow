@@ -52,6 +52,7 @@
     color: var(--accent-secondary);
     transition: var(--transition-speed);
     background-color: transparent;
+    cursor: pointer;
 }
 
 .info-accent{
@@ -66,6 +67,7 @@
     color: var(--accent-primary);
     transition: var(--transition-speed);
     background-color: transparent;
+    cursor: pointer;
 }
 
 #who-said-info{
