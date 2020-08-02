@@ -8,12 +8,15 @@ import FollowersGame from '../components/FollowersGame';
 
 class GameDisplayPage extends React.Component{
 
+	//currentGame can be:
+	// - "followers_game"
+	// - "guess_who_tweeted_game"
 	state = {
 		data: null,
 		currentGame: ""
 	}
 
-	
+
 
     render(){
         return(
