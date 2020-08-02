@@ -14,16 +14,16 @@ auth.set_access_token(credentials.access_token, credentials.access_token_secret)
 api = tweepy.API(auth, wait_on_rate_limit = True)
 
 #usernames are not case sensitive!
-user = 'veronicamuriga'
+# user = 'veronicamuriga'
 
 class Game:
     def __init__(self, user_name):
         self.user_name = user_name
         self.user = api.get_user(self.user_name)
         self.friend = None
+        #minimum of four
         self.verified_friends = list()
-        self.friend_obj = None
-        self.choice_b = None
+        self.choices = None
 
     def find_verified_friends(self, user_name):
         friends = api.friends(self.user_name, count = self.user.friends_count)
@@ -42,19 +42,23 @@ class Game:
         # self.find_verified_friends(self.user_name)
 
         # end = min({200, len(self.verified_friends)-1})
-        end = min({len(self.verified_friends)-1 ,15})
-        rand_1 = random.randint(0, end)
-        rand_2 = random.randint(0, end)
-        while rand_1 == rand_2:
-            rand_2 = random.randint(0, end)
+        # end = min({len(self.verified_friends)-1 ,15})
+        # rand_1 = random.randint(0, end)
+        # rand_2 = random.randint(0, end)
+        # while rand_1 == rand_2:
+        #     rand_2 = random.randint(0, end)
 
         #print(len(self.verified_friends), rand)
 
         #save details of thaat friend
         # self.friend = api.get_user(self.verified_friends[rand])
-        self.friend = self.verified_friends[rand_1]
-        self.choice_b = self.verified_friends[rand_2]
+        # self.friend = self.verified_friends[rand_1]
+        # self.choice_b = self.verified_friends[rand_2]
         #print(self.friend.name)
+        k = min(5, len(self.verified_friends))
+        self.choices = random.sample(self.verified_friends, k)
+        random.shuffle(self.choices)
+        self.friend = self.choices.pop()
 
         # 200 appears to be the upper bound of tweets we can access at a time
         self.friend_tweets = api.user_timeline(self.friend.id, count = min({200, self.friend.statuses_count}))
@@ -96,13 +100,12 @@ def disp_1(username):
         # rand = random.randint(0, len(gamer.verified_friends)-1)
 
         obj = gamer.random_tweet_wrapper()
-        randomize = {obj[0], gamer.choice_b.name}
-        rounds.append({'tweet' : obj[2], 'tweet_time' : obj[1], 'correct_user_name' : obj[0], 'choices' : [randomize.pop(), randomize.pop()]})
+        rounds.append({'tweet' : obj[2], 'tweet_time' : obj[1], 'correct_user_name' : obj[0], 'choices' : gamer.choices})
         # #print(rounds)
     # ret = gamer.random_tweet_wrapper()
-    # return {'game_type': 'who_tweeted_this', 'rounds' : rounds}
+    return {'game_type': 'who_tweeted_this', 'rounds' : rounds}
     
-    return jsonify({'game_type': 'who_tweeted_this', 'rounds' : rounds})
+    # return jsonify({'game_type': 'who_tweeted_this', 'rounds' : rounds})
 
     # 'correct_user_id': ret[0], 'tweet' : ret[1], 'choices' : {ret[0], gamer.verified_friends[:min({len(gamer.verified_friends), 3})]}}) 
 
@@ -126,8 +129,8 @@ def disp_2(username):
             winner = gamer.verified_friends[rand_2]
 
         rounds.append({'choices' : [gamer.verified_friends[rand_1].name, gamer.verified_friends[rand_2].name], 'winner' : winner.name, 'winner_followers' : winner.followers_count})
-    # return {'game_type': 'who_has_more_followers', 'rounds' : rounds}
-    return jsonify({'game_type': 'who_has_more_followers', 'rounds' : rounds})
+    return {'game_type': 'who_has_more_followers', 'rounds' : rounds}
+    # return jsonify({'game_type': 'who_has_more_followers', 'rounds' : rounds})
 
 # driver function 
 # if __name__ == '__main__': 
@@ -138,7 +141,7 @@ def disp_2(username):
 # gamer = Game(user)
 # #print(gamer.random_tweet_wrapper())
 
-# print(disp_2(user))
+# print(disp_1(user))
 
 
 
