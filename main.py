@@ -55,7 +55,7 @@ class Game:
         # self.friend = self.verified_friends[rand_1]
         # self.choice_b = self.verified_friends[rand_2]
         #print(self.friend.name)
-        k = min(4, len(self.verified_friends))
+        k = min(4, len(self.verified_friends)-1)
         rand = random.randint(0, k)
 
         self.choices = random.sample(self.verified_friends, k)
