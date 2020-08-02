@@ -14,7 +14,7 @@ auth.set_access_token(credentials.access_token, credentials.access_token_secret)
 api = tweepy.API(auth, wait_on_rate_limit = True)
 
 #usernames are not case sensitive!
-user = 'veronicamuriga'
+user = 'michelleobama'
 
 class Game:
     def __init__(self, user_name):
@@ -47,6 +47,7 @@ class Game:
 
         # 200 appears to be the upper bound of tweets we can access at a time
         self.friend_tweets = api.user_timeline(self.friend.id, count = min({200, self.friend.statuses_count}))
+        print(len(self.friend_tweets))
         # #print(hasattr(tweets[0], 'retweeted_status'))
 
 
@@ -54,7 +55,8 @@ class Game:
         self.get_random_friend()
         #check if tweet is a retweet
         while rt:
-            status_ix = random.randint(0, len(self.friend_tweets)-1)
+            k = len(self.friend_tweets)-1
+            status_ix = random.randint(0, k)
             # #print("statuses:", len(self.friend_tweets), "actual", self.friend.statuses_count)
             tweet = self.friend_tweets.pop(status_ix)
             rt = hasattr(tweet, 'retweeted_status') or tweet.in_reply_to_status_id != None
@@ -76,11 +78,9 @@ class Game:
 @app.route('/home/who_tweeted_this/<username>', methods = ['GET', 'POST']) 
 def disp_1(username): 
     rounds = list()
-    friends = list()
     gamer = Game(username)
     gamer.find_verified_friends(gamer.user_name)
     
-
     for _ in range(5):
         # rand = random.randint(0, len(gamer.verified_friends)-1)
 
@@ -108,7 +108,7 @@ def disp_2(username):
         while rand_1 == rand_2:
             rand_2 = random.randint(0, len(gamer.verified_friends)-1)
 
-        if gamer.verified_friends[rand_1].followers_count > gamer.verified_friends[rand_1].followers_count:
+        if gamer.verified_friends[rand_1].followers_count > gamer.verified_friends[rand_2].followers_count:
             winner = gamer.verified_friends[rand_1]
         else:
             winner = gamer.verified_friends[rand_2]
@@ -126,7 +126,8 @@ def disp_2(username):
 # gamer = Game(user)
 # #print(gamer.random_tweet_wrapper())
 
-# print(disp_1(user))
+# disp_1(user)
+# disp_2(user)
 
 
 
