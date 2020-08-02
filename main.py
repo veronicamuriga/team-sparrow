@@ -117,7 +117,7 @@ def disp_2(username):
         else:
             winner = gamer.verified_friends[rand_2]
 
-        rounds.append({'choices' : {gamer.verified_friends[rand_1].name, gamer.verified_friends[rand_2].name}, 'winner' : winner.name, 'winner_followers' : winner.followers_count})
+        rounds.append({'choices' : [gamer.verified_friends[rand_1].name, gamer.verified_friends[rand_2].name], 'winner' : winner.name, 'winner_followers' : winner.followers_count})
     # return {'game_type': 'who_has_more_followers', 'rounds' : rounds}
     return jsonify({'game_type': 'who_has_more_followers', 'rounds' : rounds})
 
