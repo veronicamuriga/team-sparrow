@@ -59,7 +59,7 @@ class Game:
         self.get_random_friend()
         #check if tweet is a retweet
         while rt:
-            status_ix = random.randint(1, len(self.friend_tweets))
+            status_ix = random.randint(1, len(self.friend_tweets)-1)
             # #print("statuses:", len(self.friend_tweets), "actual", self.friend.statuses_count)
             tweet = self.friend_tweets.pop(status_ix)
             rt = hasattr(tweet, 'retweeted_status') or tweet.in_reply_to_status_id != None
