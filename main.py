@@ -4,7 +4,7 @@ from flask import Flask, jsonify, request
 app = Flask(__name__) 
 
 import tweepy
-import credentials
+from app import credentials
 import random 
 
 # follower_threshold = 100
