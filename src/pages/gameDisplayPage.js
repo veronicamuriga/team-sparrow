@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styling/gameDisplayPage.css';
 import NavBar from '../components/navBar';
-import GameTile from '../components/GameTile';
+import IndividualGameTile from '../components/IndividualGameTile';
 import SideBar from '../components/sidebar';
 
 
@@ -10,7 +10,7 @@ class GameDisplayPage extends React.Component{
         return(
             <div className="GameDisplay">
                 <NavBar/>
-                <GameTile/>
+                <IndividualGameTile/>
                 <SideBar/>
             </div>
         );
