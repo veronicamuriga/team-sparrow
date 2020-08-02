@@ -122,9 +122,9 @@ def disp(username):
     return jsonify({'game_type': 'who_has_more_followers', 'rounds' : rounds})
 
 # driver function 
-if __name__ == '__main__': 
+# if __name__ == '__main__': 
     
-    app.run(debug = True) 
+#     app.run(debug = True) 
 
 
 # gamer = Game(user)
