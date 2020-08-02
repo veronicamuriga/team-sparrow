@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styling/dashboard.css';
 import NavBar from '../components/navBar';
-import GameTile from '../components/GameTile';
+import IndividualGameTile from '../components/IndividualGameTile';
 import SideBar from '../components/sidebar';
 
 
@@ -10,8 +10,8 @@ class DashBoard extends React.Component{
         return(
             <div className="Dashboard">
                 <NavBar/>
-                <GameTile/>
                 <SideBar/>
+                <IndividualGameTile/>
             </div>
         );
     }

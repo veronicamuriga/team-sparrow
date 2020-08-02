@@ -1,21 +1,28 @@
-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: -webkit-calc(100% - 40px);
-  height: 6vh;
-  margin: 20px;
-  background-color: #EBECF0;
-
+:root {
+  font-size: 16px;
+  font-family: 'Open Sans';
+  --text-primary: #fff;
+  --accent-primary: #D81E1A;
+  --accent-secondary: #FFA600;
+  --bg-primary: #141F2C;
+  --bg-secondary: #1DA2F2;
+  --transition-speed: 300ms;
 }
 
-.LandingPage,
+body{
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+
+
 .Dashboard,
 .PartyPage,
 .GameDisplay,
 .Leaderboard{
-  display: grid;
+  display: block;
   width: 100%;
+ 
   min-height: -webkit-fill-available;
   height: -webkit-calc(94vh - 40px);
   background-color: #EBECF0;
@@ -24,7 +31,7 @@ header {
   "SideBar GameTile";
   grid-template-columns: 1fr 6fr;
   grid-template-rows:  1fr 5fr;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: Arial, Helvetica, sans-serif;;
   font-weight: normal;
   background-color: #141F2C;
 }
