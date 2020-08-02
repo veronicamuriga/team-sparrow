@@ -56,7 +56,7 @@ class Game:
         #check if tweet is a retweet
         while rt:
             k = len(self.friend_tweets)-1
-            status_ix = random.randint(0, k)
+            status_ix = random.randint(0, k-1)
             tweet = self.friend_tweets.pop(status_ix)
             rt = hasattr(tweet, 'retweeted_status') or tweet.in_reply_to_status_id != None
 
