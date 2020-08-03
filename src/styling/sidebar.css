@@ -18,7 +18,7 @@
   justify-content: start;
 }
 
-.menu-text{
+.menu-text, .logout-text{
   margin: 0;
   font-size: 0px;
   visibility: hidden;
@@ -32,12 +32,28 @@
   padding-top: 1.55rem;
   font-size: 2rem;
   display: inline;
-  color: var(--bg-primary);
+  color: var(--text-primary);
   font-weight: 700;
   visibility: visible;
   transition: visibility 0s, opacity 0.3s linear;
   transition: 300ms;
   text-align: center;
+
+}
+
+.sidebar:hover .logout-text{
+  position: absolute;
+  left: 5rem;
+  top: 17rem;
+  font-size: 2rem;
+  display: inline;
+  color: var(--text-primary);
+  font-weight: 700;
+  visibility: visible;
+  transition: visibility 0s, opacity 0.3s linear;
+  transition: 300ms;
+  text-align: center;
+  cursor: pointer;
 
 }
 
@@ -50,6 +66,20 @@
 .menuSelect{
   width: 100%;
   transition: var(--transition-speed);
+  height: 5rem;
+}
+
+.sidebar button{
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar button img{
+padding: 0;
+display: inline-block;
+position: absolute;
+top: 16rem;
+left: 0.5rem;
 }
 
 .menuSelect:hover{
