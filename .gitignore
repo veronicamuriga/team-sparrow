@@ -29,3 +29,5 @@ functions/.eslintrc.json
 functions/.gitignore
 functions/package.json
 functions/package-lock.json
+
+credentials.py
